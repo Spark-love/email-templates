@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Received</title>
+    <style>
+        body {
+            font-family: 'Cabinet grotesk', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #1F3930;
+        }
+        .container {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            box-sizing: border-box;
+        }
+        .header {
+            text-align: center;
+            padding-bottom: 20px;
+        }
+        .header h1 {
+            font-family: 'Playfair Display', serif;
+            color: #C0A46F;
+            font-size: 24px;
+            margin: 0;
+        }
+        .header img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        .content {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #1F3930;
+            padding: 10px 0;
+        }
+        .content p {
+            margin-bottom: 15px;
+            margin: 0;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 14px;
+            color: #666666;
+        }
+        .footer p {
+            margin: 5px 0;
+        }
+        @media (prefers-color-scheme: dark) {
+            body, .container {
+                background-color: #1F3930;
+                color: #F3EAE1;
+            }
+            .header h1 {
+                color: #C0A46F;
+            }
+            .content p, .footer p, .content a {
+                color: #F3EAE1;
+            }
+        }
+        @media only screen and (max-width: 600px) {
+            .container {
+                padding: 15px;
+            }
+            .header h1 {
+                font-size: 22px;
+            }
+            .content p {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="https://via.placeholder.com/600x200" alt="Booking Created">
+            <h1>Booking Received</h1>
+        </div>
+        <div class="content">
+            <p>Dear (First Name),</p>
+            <p>Your booking request for (experience name) with the below details has been received.</p>
+            <p>Once we find everything in order and it is confirmed by the experience provider, we will be sending you a link where you can make the payment.</p>
+            <p>(insert details of experience booking)</p>
+            <p>Thank you for allowing us to enable your Spark from here.</p>
+            <p>All the best,</p>
+            <p>The SPARK Team</p>
+        </div>
+        <div class="footer">
+            <p>&copy; 2024 Club Spark Pte Ltd. All Rights Reserved.</p>
+            <p>If you have any questions, contact us at <a href="mailto:support@spark.love" style="color:#C0A46F;">support@spark.love</a></p>
+        </div>
+    </div>
+</body>
+</html>

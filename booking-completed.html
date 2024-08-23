@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Completion</title>
+    <style>
+        body {
+            font-family: 'Cabinet grotesk', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #1F3930;
+        }
+        .container {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            box-sizing: border-box;
+        }
+        .header {
+            text-align: center;
+            padding-bottom: 20px;
+        }
+        .header h1 {
+            font-family: 'Playfair Display', serif;
+            color: #C0A46F;
+            font-size: 24px;
+            margin: 0;
+        }
+        .header img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        .content {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #1F3930;
+            padding: 10px 0;
+        }
+        .content p {
+            margin-bottom: 15px;
+            margin: 0;
+        }
+        .rating {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .rating a {
+            text-decoration: none;
+            font-size: 24px;
+            color: #C0A46F;
+            margin: 0 5px;
+        }
+        .rating a:hover {
+            color: #FFD700;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 14px;
+            color: #666666;
+        }
+        .footer p {
+            margin: 5px 0;
+        }
+        @media (prefers-color-scheme: dark) {
+            body, .container {
+                background-color: #1F3930;
+                color: #F3EAE1;
+            }
+            .header h1 {
+                color: #C0A46F;
+            }
+            .content p, .footer p, .content a {
+                color: #F3EAE1;
+            }
+            .rating a {
+                color: #FFD700;
+            }
+        }
+        @media only screen and (max-width: 600px) {
+            .container {
+                padding: 15px;
+            }
+            .header h1 {
+                font-size: 22px;
+            }
+            .content p {
+                font-size: 14px;
+            }
+            .rating a {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="https://via.placeholder.com/600x200" alt="Booking Completion">
+            <h1>Booking Completion</h1>
+        </div>
+        <div class="content">
+            <p>Dear (First Name),</p>
+            <p>Your booking for (experience name) is now marked complete.</p>
+            <p>We do hope you had an enjoyable time; we'd appreciate it if you could take a moment to rate your experience.</p>
+            <div class="rating">
+                <p>Rate your experience:</p>
+                <a href="https://yourapp.com/rate?experience=5" title="5 - Excellent">&#128077;</a>
+                <a href="https://yourapp.com/rate?experience=4" title="4 - Good">&#128512;</a>
+                <a href="https://yourapp.com/rate?experience=3" title="3 - Average">&#128528;</a>
+                <a href="https://yourapp.com/rate?experience=2" title="2 - Below Average">&#128533;</a>
+                <a href="https://yourapp.com/rate?experience=1" title="1 - Poor">&#128078;</a>
+            </div>
+            <p>This feedback helps us understand our community better and continuously improve Spark, bringing us closer to our goal of ensuring beautifully crafted experiences.</p>
+            <p>Thank you very much, and we look forward to your next booking.</p>
+            <p>All the best,</p>
+            <p>The SPARK Team</p>
+        </div>
+        <div class="footer">
+            <p>&copy; 2024 Club Spark Pte Ltd. All Rights Reserved.</p>
+            <p>If you have any questions, contact us at <a href="mailto:support@spark.love" style="color:#C0A46F;">support@spark.love</a></p>
+        </div>
+    </div>
+</body>
+</html>

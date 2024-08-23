@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{Email Subject}</title>
+    <style>
+        body {
+            font-family: 'Cabinet grotesk', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+            color: #1F3930;
+        }
+        .container {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            box-sizing: border-box;
+        }
+        .header {
+            text-align: center;
+            padding-bottom: 20px;
+        }
+        .header img {
+            max-width: 150px;
+            height: auto;
+        }
+        .content {
+            font-size: 16px;
+            line-height: 1.6;
+            padding: 10px 0;
+        }
+        .content p {
+            margin-bottom: 15px;
+        }
+        .cta-button {
+            display: inline-block;
+            background-color: #FFC0CB;
+            color: #ffffff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 14px;
+            color: #666666;
+        }
+        .footer p {
+            margin: 5px 0;
+        }
+        @media (prefers-color-scheme: dark) {
+            body, .container {
+                background-color: #000000;
+                color: #F3EAE1;
+            }
+            .content p, .footer p, .content a {
+                color: #F3EAE1;
+            }
+            .cta-button {
+                background-color: #FFC0CB;
+                color: #000000;
+            }
+        }
+        @media only screen and (max-width: 600px) {
+            .container {
+                padding: 15px;
+            }
+            .header img {
+                max-width: 120px;
+            }
+            .content p {
+                font-size: 14px;
+            }
+            .cta-button {
+                padding: 8px 15px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="https://via.placeholder.com/150" alt="Spark Logo">
+        </div>
+        <div class="content">
+            {Email Content}
+        </div>
+        <div class="footer">
+            <p>&copy; 2024 Spark. All Rights Reserved.</p>
+            <p>Made with love for love.</p>
+            <p>Spark HQ, 1234 Love Lane, Bangkok, Thailand</p>
+            <p>If you have any questions, contact us at <a href="mailto:support@spark.love" style="color:#FFC0CB;">support@spark.love</a></p>
+        </div>
+    </div>
+</body>
+</html>
