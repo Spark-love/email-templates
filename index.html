@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template Previews</title>
+    <style>
+        body {
+            font-family: 'Cabinet grotesk', sans-serif;
+            background-color: #f5f5f5;
+            color: #1F3930;
+            margin: 0;
+            padding: 20px;
+            overflow-y: scroll;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        h1 {
+            color: #C0A46F;
+            font-family: 'Playfair Display', serif;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .card {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            text-align: center;
+            transition: transform 0.3s ease, background-color 0.3s, color 0.3s;
+            overflow: hidden;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .card iframe {
+            width: 100%;
+            height: 200px;
+            border: none;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .card h2 {
+            font-size: 18px;
+            color: #1F3930;
+            margin-bottom: 10px;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #C0A46F;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: #a8904f;
+        }
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .popup {
+            background-color: #ffffff;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 1200px;
+            max-height: 90%;
+            overflow-y: auto;
+            position: relative;
+            padding: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            transition: width 0.3s ease, height 0.3s ease;
+        }
+        .popup-header {
+            font-family: 'Cabinet grotesk', sans-serif;
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .popup-header h3 {
+            font-size: 16px;
+            color: #444;
+            margin: 0;
+            font-weight: normal;
+            flex-grow: 1;
+        }
+        .popup-buttons {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .popup iframe {
+            width: 100%;
+            height: calc(100vh - 160px); /* Adjust height considering padding and header */
+            border: none;
+            border-radius: 8px;
+            transition: width 0.3s ease, height 0.3s ease;
+        }
+        .popup-button {
+            background-color: transparent;
+            color: #C0A46F;
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            text-align: center;
+            cursor: pointer;
+            font-size: 18px;
+            line-height: 30px;
+        }
+        .popup-button:active,
+        .popup-button:focus {
+            outline: none;
+        }
+        .popup-close {
+            order: 3;
+        }
+        .popup-fullscreen {
+            order: 2;
+        }
+        .popup-toggle-mobile {
+            order: 1;
+        }
+        .popup-toggle-desktop {
+            order: 1;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Spark Email Template Previews</h1>
+    <div class="grid-container">
+        <div class="card">
+            <iframe src="welcome.html"></iframe>
+            <h2>Welcome Email</h2>
+            <button class="button" onclick="openPopup('welcome.html', 'Welcome to Spark! Let’s Get You Started ✨')">Preview</button>
+        </div>
+        <div class="card">
+            <iframe src="welcomev2.html"></iframe>
+            <h2>Welcome Email v2</h2>
+            <button class="button" onclick="openPopup('welcomev2.html', 'Welcome to Spark! Let’s Get You Started ✨')">Preview</button>
+        </div>
+        <div class="card">
+            <iframe src="profile-complete-reminder.html"></iframe>
+            <h2>Profile Completion Reminder</h2>
+            <button class="button" onclick="openPopup('profile-complete-reminder.html', 'Complete Your Profile for Personalized Matches 🎯')">Preview</button>
+        </div>
+        <div class="card">
+            <iframe src="first-booking-nudge.html"></iframe>
+            <h2>First Booking Nudge</h2>
+            <button class="button" onclick="openPopup('first-booking-nudge.html', 'Ready to Start Your First Adventure with Spark? 🌟')">Preview</button>
+        </div>
+        <div class="card">
+            <iframe src="booking-confirmation.html"></iframe>
+            <h2>Booking Confirmation</h2>
+            <button class="button" onclick="openPopup('booking-confirmation.html', 'Your Spark Experience is Confirmed! 🎉')">Preview</button>
+        </div>
+        <div class="card">
+            <iframe src="booking-confirmation-v2.html"></iframe>
+            <h2>Booking Confirmation v2</h2>
+            <button class="button" onclick="openPopup('booking-confirmation-v2.html', 'Your Spark Experience is Confirmed! 🎉')">Preview</button>
+        </div>
+        <div class="card">
+            <iframe src="booking-received.html"></iframe>
+            <h2>Booking Received</h2>
+            <button class="button" onclick="openPopup('booking-received.html', 'Your Spark Experience is Received')">Preview</button>
+        </div>
+        <div class="card">
+            <iframe src="booking-pending.html"></iframe>
+            <h2>Booking Pending</h2>
+            <button class="button" onclick="openPopup('booking-pending.html', 'Your Spark Experience is Pending')">Preview</button>
+        </div>
+        <div class="card">
+            <iframe src="booking-cancellation.html"></iframe>
+            <h2>Booking Cancellation</h2>
+            <button class="button" onclick="openPopup('booking-cancellation.html', 'Your Spark Experience is Cancelled')">Preview</button>
+        </div>
+        <div class="card">
+            <iframe src="booking-completed.html"></iframe>
+            <h2>Booking Completed</h2>
+            <button class="button" onclick="openPopup('booking-completed.html', 'Your Spark Experience is Completed')">Preview</button>
+        </div>
+        <div class="card">
+            <iframe src="experience-feedback.html"></iframe>
+            <h2>Experience Feedback</h2>
+            <button class="button" onclick="openPopup('experience-feedback.html', 'How Was Your Spark Experience? 💬')">Preview</button>
+        </div>
+        <div class="card">
+            <iframe src="event-invitation.html"></iframe>
+            <h2>Event Invitation</h2>
+            <button class="button" onclick="openPopup('event-invitation.html', 'You’re Invited! Exclusive Event Just for You 🎉')">Preview</button>
+        </div>
+        <div class="card">
+            <iframe src="re-engagement.html"></iframe>
+            <h2>Re-Engagement Email</h2>
+            <button class="button" onclick="openPopup('re-engagement.html', 'We Miss You at Spark! Here’s What’s New 🔥')">Preview</button>
+        </div>
+        <div class="card">
+            <iframe src="referral-program-invite.html"></iframe>
+            <h2>Referral Program Invite</h2>
+            <button class="button" onclick="openPopup('referral-program-invite.html', 'Share the Spark with Friends & Earn Rewards! 🎁')">Preview</button>
+        </div>
+        <div class="card">
+            <iframe src="subscription-renewal-reminder.html"></iframe>
+            <h2>Subscription Renewal Reminder</h2>
+            <button class="button" onclick="openPopup('subscription-renewal-reminder.html', 'Your Spark Subscription is Renewing Soon 🔄')">Preview</button>
+        </div>
+        <div class="card">
+            <iframe src="profile-verification-submited.html"></iframe>
+            <h2>Profile Verification Submitted</h2>
+            <button class="button" onclick="openPopup('profile-verification-submited.html', 'Your Verification Request is Under Review 🔍')">Preview</button>
+        </div>
+        <div class="card">
+            <iframe src="profile-verification-approved.html"></iframe>
+            <h2>Profile Verification Approved</h2>
+            <button class="button" onclick="openPopup('profile-verification-approved.html', 'Congratulations, You’re Verified! ✅')">Preview</button>
+        </div>
+        <div class="card">
+            <iframe src="profile-verification-rejected.html"></iframe>
+            <h2>Profile Verification Rejected</h2>
+            <button class="button" onclick="openPopup('profile-verification-rejected.html', 'Verification Update: Action Needed ⚠️')">Preview</button>
+        </div>
+        <div class="card">
+            <iframe src="profile-report-acknowledgement.html"></iframe>
+            <h2>Profile Report Acknowledgement</h2>
+            <button class="button" onclick="openPopup('profile-report-acknowledgement.html', 'We’ve Received Your Report 🚨')">Preview</button>
+        </div>
+        <div class="card">
+            <iframe src="profile-ban.html"></iframe>
+            <h2>Profile Ban</h2>
+            <button class="button" onclick="openPopup('profile-ban.html', 'Account Suspension Notice 🚫')">Preview</button>
+        </div>
+        <div class="card">
+            <iframe src="vendor-signup.html"></iframe>
+            <h2>Vendor Signup</h2>
+            <button class="button" onclick="openPopup('vendor-signup.html', 'Thank You for Signing Up as a Vendor')">Preview</button>
+        </div>
+    </div>
+
+    <div class="popup-overlay" id="popup-overlay">
+        <div class="popup" id="popup">
+            <div class="popup-header">
+                <h3 id="email-subject">Email Subject Here</h3>
+                <div class="popup-buttons">
+                    <button class="popup-button popup-toggle-mobile" onclick="toggleToMobile()">📱</button>
+                    <button class="popup-button popup-toggle-desktop" onclick="toggleToDesktop()">🖥️</button>
+                    <button class="popup-button popup-fullscreen" onclick="openFullscreen()">⛶</button>
+                    <button class="popup-button popup-close" onclick="closePopup()">×</button>
+                </div>
+            </div>
+            <iframe id="popup-iframe"></iframe>
+        </div>
+    </div>
+
+    <script>
+        let isMobileView = false;
+
+        function openPopup(templateUrl, subject) {
+            const popupOverlay = document.getElementById('popup-overlay');
+            const iframe = document.getElementById('popup-iframe');
+            const subjectElement = document.getElementById('email-subject');
+            
+            iframe.src = templateUrl;
+            subjectElement.textContent = subject;
+            popupOverlay.style.display = 'flex';
+        }
+
+        function closePopup() {
+            const popupOverlay = document.getElementById('popup-overlay');
+            popupOverlay.style.display = 'none';
+            document.getElementById('popup-iframe').src = ''; // Reset iframe src to stop loading
+            toggleToDesktop(); // Reset to desktop view when closing the popup
+        }
+
+        function openFullscreen() {
+            const iframe = document.getElementById('popup-iframe');
+            if (iframe.requestFullscreen) {
+                iframe.requestFullscreen();
+            } else if (iframe.mozRequestFullScreen) { // Firefox
+                iframe.mozRequestFullScreen();
+            } else if (iframe.webkitRequestFullscreen) { // Chrome, Safari, Opera
+                iframe.webkitRequestFullscreen();
+            } else if (iframe.msRequestFullscreen) { // IE/Edge
+                iframe.msRequestFullscreen();
+            }
+        }
+
+        function toggleToMobile() {
+            const iframe = document.getElementById('popup-iframe');
+            const popup = document.getElementById('popup');
+            isMobileView = true;
+
+            popup.style.width = '375px'; // Typical mobile width
+            popup.style.height = '667px'; // Typical mobile height
+            popup.style.maxWidth = '100%';
+            popup.style.maxHeight = '100%';
+            popup.style.borderRadius = '16px';
+            iframe.style.width = '100%';
+            iframe.style.height = 'calc(100vh - 160px)';
+            iframe.style.borderRadius = '16px';
+            document.querySelector('.popup-toggle-mobile').style.display = 'none';
+            document.querySelector('.popup-toggle-desktop').style.display = 'block';
+        }
+
+        function toggleToDesktop() {
+            const iframe = document.getElementById('popup-iframe');
+            const popup = document.getElementById('popup');
+            isMobileView = false;
+
+            popup.style.width = '90%';
+            popup.style.height = '90%';
+            popup.style.maxWidth = '1200px';
+            popup.style.maxHeight = '90%';
+            popup.style.borderRadius = '8px';
+            iframe.style.width = '100%';
+            iframe.style.height = 'calc(100vh - 160px)';
+            iframe.style.borderRadius = '8px';
+            document.querySelector('.popup-toggle-mobile').style.display = 'block';
+            document.querySelector('.popup-toggle-desktop').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
